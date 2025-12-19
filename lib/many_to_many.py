@@ -9,7 +9,14 @@ class Author:
         return [contract.book for contract in self.contracts()]
 
 class Book:
-    pass
+    def __init__(self, title):
+        self.title = title
+
+    def contracts(self):
+        return [contract for contract in Contract.all if contract.book == self]
+    
+    def authors(self):
+        return [contract.author for contract in self.contracts()]
 
 
 class Contract:
