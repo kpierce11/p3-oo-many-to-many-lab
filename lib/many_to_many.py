@@ -1,6 +1,12 @@
 class Author:
-    pass
+    def __init__(self, name):
+        self.name = name
 
+    def contracts(self):
+        return [contract for contract in Contract.all if contract.author == self]
+    
+    def books(self):
+        return [contract.book for contract in self.contracts()]
 
 class Book:
     pass
